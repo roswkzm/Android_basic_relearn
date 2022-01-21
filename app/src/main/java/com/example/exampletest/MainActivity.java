@@ -23,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
         btn_test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                et_id.setText("이진영");
+                et_id.setText("이진영1");
             }
-        });
+       });
     }
 }
