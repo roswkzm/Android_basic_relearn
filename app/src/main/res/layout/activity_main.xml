@@ -7,16 +7,9 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="gdgd"/>
-
-    <ListView
-        android:id="@+id/list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    </ListView>
+    <EditText
+        android:id="@+id/et_save"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>
