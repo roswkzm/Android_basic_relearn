@@ -1,70 +1,64 @@
 package com.example.exampletest;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
-
-import java.util.ArrayList;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btn1, btn2, btn3, btn4;
+    Button btn_start, btn_stop;
+    Thread thread;
+    boolean isThread = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btn1 = (Button) findViewById(R.id.btn_1);
-        btn2 = (Button) findViewById(R.id.btn_2);
-        btn3 = (Button) findViewById(R.id.btn_3);
-        btn4 = (Button) findViewById(R.id.btn_4);
-
-        btn1.setOnClickListener(new View.OnClickListener() {
+        //쓰레드 시작
+        btn_start = (Button) findViewById(R.id.btn_start);
+        btn_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                Fragment1 fragment1 = new Fragment1();
-                transaction.replace(R.id.frame,fragment1);
-                transaction.commit();
+
+                isThread = true;
+                thread = new Thread(){
+                    public void run(){
+                        while(isThread){
+                            try {
+                                sleep(5000);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                            handler.sendEmptyMessage(0);
+                        }
+                    }
+                };
+                thread.start();
             }
         });
 
-        btn2.setOnClickListener(new View.OnClickListener() {
+        //쓰레드 종료
+        btn_stop = (Button) findViewById(R.id.btn_stop);
+        btn_stop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                Fragment2 fragment2 = new Fragment2();
-                transaction.replace(R.id.frame,fragment2);
-                transaction.commit();
+                isThread = false;
             }
         });
-
-        btn3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                Fragment3 fragment3 = new Fragment3();
-                transaction.replace(R.id.frame,fragment3);
-                transaction.commit();
-            }
-        });
-
-        btn4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                Fragment4 fragment4 = new Fragment4();
-                transaction.replace(R.id.frame,fragment4);
-                transaction.commit();
-            }
-        });
-
     }
+
+    private Handler handler = new Handler(){
+        @Override
+        public void handleMessage(@NonNull Message msg) {
+            Toast.makeText(getApplicationContext(),"이진영 핸들러", Toast.LENGTH_SHORT).show();
+        }
+    };
 }
