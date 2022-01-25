@@ -7,19 +7,17 @@
     android:orientation="horizontal"
     tools:context=".MainActivity">
 
-
     <Button
-        android:id="@+id/btn_start"
-        android:layout_width="match_parent"
+        android:id="@+id/btn_dialog"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="쓰레드 시작"/>
+        android:text="다이얼로그"/>
 
-    <Button
-        android:id="@+id/btn_stop"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="쓰레드 종료"/>
+        android:text="test"
+        android:textSize="40sp"/>
 
 </LinearLayout>

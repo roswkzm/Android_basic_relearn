@@ -1,64 +1,61 @@
 package com.example.exampletest;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btn_start, btn_stop;
-    Thread thread;
-    boolean isThread = false;
+    Button btn_dialog;
+    TextView tv_result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //쓰레드 시작
-        btn_start = (Button) findViewById(R.id.btn_start);
-        btn_start.setOnClickListener(new View.OnClickListener() {
+        btn_dialog = (Button) findViewById(R.id.btn_dialog);
+        tv_result = (TextView) findViewById(R.id.tv_result);
+
+        btn_dialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                AlertDialog.Builder ad = new AlertDialog.Builder(MainActivity.this);
+                ad.setIcon(R.mipmap.ic_launcher);
+                ad.setTitle("제목");
+                ad.setMessage("메시지 부분");
 
-                isThread = true;
-                thread = new Thread(){
-                    public void run(){
-                        while(isThread){
-                            try {
-                                sleep(5000);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
-                            handler.sendEmptyMessage(0);
-                        }
+                final EditText et = new EditText(MainActivity.this);
+                ad.setView(et);
+
+                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        String result = et.getText().toString();
+                        tv_result.setText(result);
+                        dialogInterface.dismiss();
                     }
-                };
-                thread.start();
-            }
-        });
+                });
 
-        //쓰레드 종료
-        btn_stop = (Button) findViewById(R.id.btn_stop);
-        btn_stop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                isThread = false;
+                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+                ad.show();
             }
         });
     }
-
-    private Handler handler = new Handler(){
-        @Override
-        public void handleMessage(@NonNull Message msg) {
-            Toast.makeText(getApplicationContext(),"이진영 핸들러", Toast.LENGTH_SHORT).show();
-        }
-    };
 }
