@@ -12,6 +12,10 @@
         <entry key="app/src/main/res/layout/activity_sub.xml" value="0.16770833333333332" />
         <entry key="app/src/main/res/layout/app_bar_sub.xml" value="0.16770833333333332" />
         <entry key="app/src/main/res/layout/content_sub.xml" value="0.16770833333333332" />
+        <entry key="app/src/main/res/layout/fragment1.xml" value="0.213768115942029" />
+        <entry key="app/src/main/res/layout/fragment2.xml" value="0.213768115942029" />
+        <entry key="app/src/main/res/layout/fragment3.xml" value="0.213768115942029" />
+        <entry key="app/src/main/res/layout/fragment4.xml" value="0.213768115942029" />
         <entry key="app/src/main/res/layout/fragment_gallery.xml" value="0.16770833333333332" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.16770833333333332" />
         <entry key="app/src/main/res/layout/fragment_slideshow.xml" value="0.16770833333333332" />
