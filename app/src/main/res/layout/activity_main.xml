@@ -7,30 +7,23 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scrollbarFadeDuration="0"
+        android:scrollbarSize="5dp"
+        android:scrollbarThumbVertical="@android:color/darker_gray"
+        android:scrollbars="vertical"
         android:layout_weight="1">
 
-        <ImageView
-            android:id="@+id/iv_result"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+    </androidx.recyclerview.widget.RecyclerView>
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:gravity="center"
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_weight="8"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:id="@+id/btn_capture"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="촬영"/>
-
-    </LinearLayout>
+        android:layout_height="match_parent"
+        android:text="추가"/>
 
 </LinearLayout>
