@@ -2,22 +2,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#7DDD0D"
+    android:gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
     tools:context=".MainActivity">
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:entries="@array/test">
-    </Spinner>
-
-    <TextView
-        android:id="@+id/tv_result"
+    <com.github.ybq.android.spinkit.SpinKitView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/spin_kit"
+        style="@style/SpinKitView.CubeGrid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="드롭다운 결과"/>
+        android:layout_gravity="center"
+        app:SpinKit_Color="#2196F3" />
 
 </LinearLayout>
