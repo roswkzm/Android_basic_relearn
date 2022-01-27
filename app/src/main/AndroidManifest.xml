@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Exampletest"
         android:usesCleartextTraffic="true">
-
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -20,7 +19,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>
