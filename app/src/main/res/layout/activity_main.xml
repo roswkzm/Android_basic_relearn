@@ -7,23 +7,5 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/tv_hello"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:textSize="24sp"/>
-
-    <Button
-        android:id="@+id/btn_hello"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="버튼입니다"/>
-
-    <FrameLayout
-        android:id="@+id/main_frame"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="16dp"/>
 
 </LinearLayout>
