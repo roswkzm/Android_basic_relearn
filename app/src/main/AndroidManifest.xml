@@ -11,11 +11,6 @@
         android:theme="@style/Theme.Exampletest"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".SubActivity"
-            android:exported="false"
-            android:theme="@android:style/Theme.Translucent">
-        </activity>
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
