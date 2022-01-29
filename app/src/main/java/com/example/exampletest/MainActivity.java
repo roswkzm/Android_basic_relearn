@@ -40,11 +40,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // 밑의 부분은 앱실행시 MainActivity에서 최초로 프래그먼트1을 띄운다는 코드이다.
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        Fragment1 fragment1 = new Fragment1();
-        transaction.replace(R.id.frameLayout, fragment1);    // Intent에서 startActivity같은 느낌이다. 프래그먼트를 전환시켜준다.
-        transaction.commit();   //저장
 
     }
 }
