@@ -2,17 +2,12 @@ package com.example.exampletest;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-
-import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
-    private FirebaseAuth mFirebaseAuth;
 
 
     @Override
@@ -20,22 +15,5 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mFirebaseAuth = FirebaseAuth.getInstance();
-
-        Button btn_logout = findViewById(R.id.btn_logout);
-        btn_logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // 로그아웃 부분
-                mFirebaseAuth.signOut();
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-        /* 회원 탈퇴
-        mFirebaseAuth.getCurrentUser().delete();
-         */
     }
 }
